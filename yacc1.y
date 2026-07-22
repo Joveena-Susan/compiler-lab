@@ -15,7 +15,7 @@ int yyerror(const char *);
 %%
 
 stmt
-        : ID '=' exp NL
+        : assign NL
           {
               printf("\nValid Expression\n");
               return 0;
@@ -25,6 +25,10 @@ stmt
               printf("\nValid Expression\n");
               return 0;
           }
+        ;
+
+assign
+        : ID '=' exp
         ;
 
 exp
@@ -50,4 +54,4 @@ int yyerror(const char *s)
 {
     printf("\nInvalid Expression\n");
     return 0;
-}    
+}
